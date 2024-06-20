@@ -3,7 +3,7 @@
     <h1>Корзина</h1>
     <div v-if="cart.length">
       <h2>Сумма: {{ total.toFixed(2) }} $</h2>
-      <div class="cart-items">
+      <div class="cart-items" :class="{'single-item-row': cart.length % 2 !== 0}">
         <div v-for="item in cart" :key="item.id" class="cart-item">
           <div class="cart-item-left">
             <div class="cart-item-image-container">
@@ -83,6 +83,10 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.single-item-row {
+  justify-content: center;
 }
 
 .cart-item {
